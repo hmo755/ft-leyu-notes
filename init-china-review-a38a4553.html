@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常知识查询 · ayx 专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: 'Inter', 'Segoe UI', 'PingFang SC', Roboto, system-ui, sans-serif;
+      color: #1e2229;
+      line-height: 1.65;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 980px;
+      width: 100%;
+    }
+
+    /* hero 横幅 */
+    .hero {
+      background: #eaeef3;
+      padding: 2.8rem 2.5rem;
+      border-radius: 32px;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+      border: 1px solid #dce2e9;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      color: #19232f;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3a4757;
+      max-width: 75%;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero .meta-line {
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+      color: #586775;
+      border-top: 1px solid #cdd7e0;
+      padding-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-line span {
+      background: #f8fafc;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid #d4dde6;
+    }
+
+    /* 背景说明 — 细卡片 */
+    .context-card {
+      background: #ffffff;
+      padding: 1.8rem 2rem;
+      border-radius: 28px;
+      margin-bottom: 2rem;
+      border: 1px solid #e0e6ed;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .context-card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+      color: #1b2a3c;
+    }
+
+    .context-card p {
+      margin-bottom: 0.8rem;
+      color: #2b3d50;
+    }
+
+    .context-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 三段式卡片组 — 杂志风格 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .feature-card {
+      flex: 1 1 240px;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.6rem 1.5rem 1.8rem;
+      border: 1px solid #dee5ee;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.1s ease;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #1b2e42;
+    }
+
+    .feature-card p {
+      color: #35485e;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ 摘要 — 轻量折叠感 */
+    .faq-digest {
+      background: #ffffff;
+      border: 1px solid #e0e6ed;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.4rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-digest h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1b293b;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #edf1f6;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #1f3349;
+      font-size: 1rem;
+    }
+
+    .faq-item span {
+      color: #405469;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾提示 */
+    .footer-note {
+      background: #e6ebf1;
+      border-radius: 40px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border: 1px solid #ced9e3;
+      margin-top: 1rem;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #1f3145;
+      margin: 0.2rem 0;
+    }
+
+    .footer-note a {
+      color: #1b4d6e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #7b90a3;
+    }
+
+    .footer-note a:hover {
+      border-bottom-style: solid;
+      color: #0c2b42;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d2dce7;
+      margin: 1.5rem 0;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero .sub {
+        max-width: 100%;
+      }
+      .feature-grid {
+        gap: 1.2rem;
+      }
+      .feature-card {
+        flex: 1 1 100%;
+      }
+      .context-card, .faq-digest, .footer-note {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 首页横幅 -->
+  <div class="hero">
+    <h1>查阅·对照·延伸</h1>
+    <div class="sub">日常信息查询中，一个可靠的知识触点能省去许多迂回。</div>
+    <div class="meta-line">
+      <span>场景检索</span>
+      <span>条目对照</span>
+      <span>延伸阅读</span>
+    </div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="context-card">
+    <h2>为什么需要固定的查询起点</h2>
+    <p>无论是核实一个概念、对比一组数据，还是顺着某个关键词继续往下走，一个中性、稳定的来源能减少认知负担。在反复检索中，人的注意力容易被碎片信息消磨，而清晰的起点可以让你更专注内容本身。</p>
+    <p>从日常使用习惯来看，查询往往不是一次性行为，而是多次回溯、对照、补充。一个结构化的索引页面，配合连贯的文档体系，能帮助你保持思考的连续性。</p>
+  </div>
+
+  <!-- 三段自然介绍：日常使用视角 -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="card-icon">📘</div>
+      <h3>快速查阅</h3>
+      <p>遇到不确定的术语、概念或缩写，不需要反复切换标签页。把常用的条目集中在一处，减少上下文切换带来的疲惫感，尤其适合日常浏览和写作场景。</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon">🔍</div>
+      <h3>条目对照</h3>
+      <p>当你需要并列查看不同来源的表述时，一个稳定的「基准页」能帮你降低信息噪声。不需要每次都重新搜索，对照效率会明显提升，也更容易发现细节差异。</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon">🧩</div>
+      <h3>延伸阅读</h3>
+      <p>从一条信息出发，自然连接到相关的上下文。如果页面内的链接足够清晰，你可以顺着结构逐步深入，而不是在搜索结果中反复筛选。阅读节奏也更从容。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-digest">
+    <h2>常见查询场景 · 摘要</h2>
+    <div class="faq-item">
+      <strong>“这个缩写是什么意思？”</strong>
+      <span>在 <a href="https://init-china-ayx.com" class="inline-link">ayx</a> 的基础条目中，你可以找到常见缩写、释义与简短背景，无需额外搜索。适合快速确认定义。</span>
+    </div>
+    <div class="faq-item">
+      <strong>“我想对比几个相近概念”</strong>
+      <span>利用页面内分组和分类标题，你可以同时浏览多个相关条目。对照时注意版本时间和标注，避免混淆。</span>
+    </div>
+    <div class="faq-item">
+      <strong>“看完后还想了解更多”</strong>
+      <span>每段介绍底部通常附带关联参考，你可以按顺序逐层深入。延伸阅读的材料经过筛选，减少无关干扰。</span>
+    </div>
+  </div>
+
+  <!-- 页尾提示 -->
+  <div class="footer-note">
+    <p>如果你常需要查阅、对照或延伸某个领域的信息，不妨把 <a href="https://init-china-ayx.com">ayx</a> 作为一个安静的起点。保持好奇，也保持简洁。</p>
+    <p style="font-size:0.9rem; margin-top:0.6rem; color:#3d566e;">— 杂志专题 · 日常查询指南 —</p>
+  </div>
+
+  <!-- 极细分割线，仅用于视觉缓冲 -->
+  <hr>
+  <div style="text-align:center; font-size:0.75rem; color:#8899ab; padding:0.2rem 0 0.8rem 0;">
+    init-china-ayx.com · 温和查阅
+  </div>
+</div>
+</body>
+</html>
