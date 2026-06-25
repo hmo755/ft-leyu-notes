@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认识 leyu · 从一次浏览开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, -apple-system, 'Helvetica Neue', sans-serif;
+            background: #f4f8fa;
+            color: #1e2e3a;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.8rem 2rem;
+            box-shadow: 0 12px 28px rgba(0, 40, 50, 0.06);
+        }
+
+        /* 网格卡片式点缀 — 用背景装饰而非实体卡片 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .grid-item {
+            background: #edf6f9;
+            border-radius: 20px;
+            padding: 1.2rem 1.2rem 1rem;
+            box-shadow: 0 2px 8px rgba(44, 130, 150, 0.06);
+            transition: all 0.2s;
+        }
+
+        .grid-item:hover {
+            background: #e0f0f5;
+            box-shadow: 0 4px 14px rgba(44, 130, 150, 0.1);
+        }
+
+        .grid-item p {
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+
+        .grid-item .label {
+            display: inline-block;
+            font-weight: 500;
+            color: #1f7a8c;
+            letter-spacing: 0.3px;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #8fcbd6;
+            padding-bottom: 2px;
+        }
+
+        @media (max-width: 580px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                padding: 1.8rem 1rem;
+                border-radius: 20px;
+            }
+
+            body {
+                padding: 1rem 0.6rem;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b3b44;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #3b6e7a;
+            border-left: 4px solid #58b2c2;
+            padding-left: 1rem;
+            margin: 0.25rem 0 1.8rem 0;
+        }
+
+        .para {
+            margin: 1.5rem 0;
+        }
+
+        .pull-quote {
+            background: #e3f2f5;
+            border-radius: 40px 12px 12px 40px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            font-style: normal;
+            font-size: 1rem;
+            border-left: 6px solid #2f9caa;
+            color: #1a4d57;
+        }
+
+        .pull-quote::before {
+            content: "💡 ";
+            font-size: 1.2rem;
+        }
+
+        .faq-block {
+            background: #f9fdff;
+            border-radius: 24px;
+            padding: 1.2rem 1.7rem;
+            margin: 2.2rem 0 1.2rem;
+            border: 1px solid #d3e7ed;
+        }
+
+        .faq-block summary {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #115b69;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+
+        .faq-block p {
+            margin: 0.6rem 0 0 0;
+            font-size: 0.95rem;
+        }
+
+        .visit-line {
+            background: #ecf7fa;
+            padding: 1.5rem 1.8rem;
+            border-radius: 60px;
+            margin: 2.5rem 0 0.8rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #1b4b54;
+            border: 1px solid #cde2e8;
+        }
+
+        .visit-line a {
+            color: #167484;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px dotted #7ec2d0;
+        }
+
+        .visit-line a:hover {
+            border-bottom: 2px solid #167484;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.2rem;
+            font-size: 0.85rem;
+            color: #7799a2;
+            border-top: 1px solid #dbeaef;
+            padding-top: 1.2rem;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #bee0e8, transparent);
+            margin: 2rem 0;
+        }
+
+        .code-tag {
+            background: #deedf0;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #136575;
+        }
+
+        /* 小蓝绿点缀 */
+        .dot-deco {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #4baab9;
+            border-radius: 2px;
+            margin-right: 6px;
+            opacity: 0.25;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>
+            <span class="dot-deco"></span> 一个叫 leyu 的地方
+        </h1>
+        <div class="subhead">
+            想快速分清它是什么、做什么、是否值得花时间了解
+        </div>
+
+        <p class="para">
+            如果你第一次看到 <strong>leyu</strong> 这个名字，可能和大多数人的第一反应一样——它听起来像一个品牌、一个社区、又或是一个工具。实际上，当你打开 <a href="https://ft-leyu.com.cn">leyu</a> 的页面，会立刻发现它更像一个内容聚合与轻交互的界面，而不是一个典型的“产品首页”。这也是为什么，很多人第一次访问时，会先花几秒钟确认自己来对了地方。
+        </p>
+
+        <div class="intro-grid">
+            <div class="grid-item">
+                <span class="label">🧭 一眼定位</span>
+                <p>内容导向，非销售导向。布局以信息层级为重，减少弹窗与浮层干扰，适合想安静阅读或浏览的人。</p>
+            </div>
+            <div class="grid-item">
+                <span class="label">📎 内容调性</span>
+                <p>文章、列表、引导语都偏向实用风格，没有夸张的口号和紧迫感。你看到的基本就是它想表达的。</p>
+            </div>
+            <div class="grid-item">
+                <span class="label">📱 响应与节奏</span>
+                <p>在手机和电脑上，排版节奏略有不同，但核心信息始终在前两屏。不需要反复滑动找重点。</p>
+            </div>
+            <div class="grid-item">
+                <span class="label">🧩 交互轻量</span>
+                <p>没有复杂的注册或下载流程。大部分入口就是链接和卡片，点击后直接进入下一层内容。</p>
+            </div>
+        </div>
+
+        <p class="para">
+            很多人会下意识寻找“这是做什么的”一句话定义。其实，<a href="https://ft-leyu.com.cn">leyu</a> 的定义散落在页面的段落和分类里，而不是浓缩在一句标语中。如果你习惯先看目录或分类导航，那么首页上的模块标题就是最快的索引。
+        </p>
+
+        <div class="pull-quote">
+            用一次浏览代替一次搜索：leyu 的内容组织方式，让第一次来的人也能按直觉找到感兴趣的部分，不用提前了解任何背景。
+        </div>
+
+        <p class="para">
+            在实际体验中，你会发现页面并没有堆砌功能列表，而是把不同的内容版块用 <span class="code-tag">卡片</span> 和 <span class="code-tag">间隔</span> 区分开。蓝绿色调的线条和浅色背景不仅是为了好看，也在暗示一种平稳的浏览节奏——不急，你可以慢慢看，每个卡片都是一个入口，但不是每个入口都需要点开。
+        </p>
+
+        <div class="faq-block">
+            <details>
+                <summary>❓ 常见的第一印象：它是不是一个博客 / 导航站 / 产品页？</summary>
+                <p>
+                    这些标签都有点沾边，但又不完全准确。leyu 的首页更接近一种「混合入口」：既有文章摘要，也有直接的功能链接，还有索引性质的短句。建议你把它当作一个独立的内容站点来体验，不需要提前归类。
+                </p>
+            </details>
+        </div>
+
+        <p class="para">
+            如果你还在犹豫“这个网站适不适合我”，最简单的办法是直接打开 <a href="https://ft-leyu.com.cn">leyu</a> 首页，从上到下滚动一遍。整个过程大概只需要 20 秒，但足以让你判断它的风格、语速和内容密度是否符合你的习惯。大多数人在第一次浏览后就能做出决定。
+        </p>
+
+        <hr>
+
+        <div class="visit-line">
+            📬 让浏览自然发生：<a href="https://ft-leyu.com.cn">leyu</a> 的内容每段时间都会更新，可以存个标签页，偶尔回来看一眼。
+        </div>
+
+        <div class="footer-note">
+            基于真实页面结构描述 · 不代替实际浏览体验
+        </div>
+    </div>
+</body>
+</html>
